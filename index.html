@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mzio.tools — Free Developer Utilities by Michael Zhang</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: #0a0a0a; color: #e0e0e0; min-height: 100vh; }
+  .header { text-align: center; padding: 60px 20px 40px; }
+  .header h1 { font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
+  .header p { color: #888; font-size: 1.1rem; }
+  .ad-banner { max-width: 728px; margin: 0 auto 40px; padding: 12px; background: #111; border: 1px solid #222; border-radius: 8px; text-align: center; color: #555; font-size: 0.85rem; min-height: 90px; display: flex; align-items: center; justify-content: center; }
+  .tools { max-width: 900px; margin: 0 auto; padding: 0 20px 60px; display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+  .tool-card { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 24px; transition: all 0.2s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
+  .tool-card:hover { border-color: #667eea; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(102,126,234,0.1); }
+  .tool-card .icon { font-size: 2rem; margin-bottom: 12px; }
+  .tool-card h3 { font-size: 1.1rem; margin-bottom: 8px; color: #fff; }
+  .tool-card p { font-size: 0.9rem; color: #888; line-height: 1.5; }
+  .tool-card .tag { display: inline-block; font-size: 0.7rem; background: #1a1a2e; color: #667eea; padding: 2px 8px; border-radius: 4px; margin-top: 12px; }
+  .footer { text-align: center; padding: 40px; color: #555; font-size: 0.85rem; border-top: 1px solid #1a1a1a; }
+  .footer a { color: #667eea; text-decoration: none; }
+  .ad-sidebar { position: fixed; right: 20px; top: 200px; width: 160px; min-height: 600px; background: #111; border: 1px solid #222; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #333; font-size: 0.75rem; }
+  @media (max-width: 1200px) { .ad-sidebar { display: none; } }
+</style>
+</head>
+<body>
+<div class="header">
+  <h1>mzio.tools</h1>
+  <p>Free developer utilities — fast, private, no signup required</p>
+</div>
+
+<div class="ad-banner">
+  <!-- Ad Banner Placeholder — 728x90 leaderboard -->
+  <span>Ad Space</span>
+</div>
+
+<div class="tools">
+  <a href="https://michael-ami-01.github.io/devtools/" class="tool-card">
+    <div class="icon">🔧</div>
+    <h3>DevTools Suite</h3>
+    <p>JSON formatter, Base64 encoder/decoder, JWT token decoder — all in one page.</p>
+    <span class="tag">Shipped</span>
+  </a>
+
+  <a href="https://michael-ami-01.github.io/coldscore/" class="tool-card">
+    <div class="icon">📧</div>
+    <h3>ColdScore</h3>
+    <p>AI-powered cold email scorer. Paste your email, get actionable feedback on subject line, personalization, and CTA.</p>
+    <span class="tag">Shipped</span>
+  </a>
+
+  <a href="https://michael-ami-01.github.io/cold-email-scorer/" class="tool-card">
+    <div class="icon">✉️</div>
+    <h3>Cold Email Scorer v2</h3>
+    <p>Enhanced cold email analysis with detailed scoring across 6 dimensions.</p>
+    <span class="tag">Shipped</span>
+  </a>
+
+  <div class="tool-card" style="opacity:0.5; cursor:default;">
+    <div class="icon">🎨</div>
+    <h3>Color Palette Generator</h3>
+    <p>Generate harmonious color palettes with CSS/Tailwind export. Coming soon.</p>
+    <span class="tag">Building</span>
+  </div>
+
+  <div class="tool-card" style="opacity:0.5; cursor:default;">
+    <div class="icon">📝</div>
+    <h3>Markdown Previewer</h3>
+    <p>Live markdown preview with GitHub-flavored syntax and export.</p>
+    <span class="tag">Building</span>
+  </div>
+
+  <div class="tool-card" style="opacity:0.5; cursor:default;">
+    <div class="icon">🔍</div>
+    <h3>Regex Tester</h3>
+    <p>Interactive regex builder with match highlighting and explanation.</p>
+    <span class="tag">Building</span>
+  </div>
+</div>
+
+<div class="ad-sidebar">
+  <!-- Sidebar Ad Placeholder — 160x600 -->
+  <span>Ad Space</span>
+</div>
+
+<div class="footer">
+  <p>Built by <a href="https://github.com/mzio">Michael Zhang</a> · Stanford CS · <a href="https://github.com/michael-ami-01">Open Source</a></p>
+</div>
+</body>
+</html>
