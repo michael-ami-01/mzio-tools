@@ -3,133 +3,368 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Tools</title>
-<meta name="description" content="Free AI-powered developer and productivity tools by Free Developer">
-<meta name="keywords" content="AI tools, developer tools, cold email scorer, regex tester, JSON formatter, resume scorer, prompt optimizer">
+<title>AI Data Extraction — Structured Data in Minutes, Not Days</title>
+<meta name="description" content="Professional AI-powered web data extraction. Get clean, structured CSV/JSON datasets from any website. 247 YC companies in 14 minutes. From $49.">
+<meta property="og:title" content="AI Data Extraction Service">
+<meta property="og:description" content="Structured data from any website. Minutes, not days.">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh}
-.header{text-align:center;padding:3rem 1rem 2rem;background:linear-gradient(135deg,#1a1a2e,#16213e)}
-h1{font-size:2.5rem;background:linear-gradient(90deg,#00d2ff,#3a7bd5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem}
-.subtitle{color:#888;font-size:1.1rem}
-.stats{display:flex;gap:2rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
-.stat{text-align:center}.stat .num{font-size:2rem;font-weight:700;color:#00d2ff}.stat .label{font-size:.8rem;color:#666;text-transform:uppercase}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;padding:2rem;max-width:1200px;margin:0 auto}
-.card{background:#1a1a2e;border-radius:12px;padding:1.5rem;transition:transform .2s,box-shadow .2s;border:1px solid #2a2a4a;text-decoration:none;color:inherit;display:block}
-.card:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,210,255,.15);border-color:#3a7bd5}
-.card .icon{font-size:2rem;margin-bottom:.75rem}
-.card h3{font-size:1.2rem;margin-bottom:.5rem;color:#fff}
-.card p{font-size:.9rem;color:#888;line-height:1.5}
-.card .tag{display:inline-block;font-size:.7rem;padding:2px 8px;border-radius:10px;background:#2a2a4a;color:#00d2ff;margin-top:.75rem}
-.footer{text-align:center;padding:2rem;color:#444;font-size:.85rem}
-.footer a{color:#3a7bd5;text-decoration:none}
-.new{position:relative}.new::after{content:'NEW';position:absolute;top:12px;right:12px;background:#ff4757;color:#fff;font-size:.6rem;padding:2px 6px;border-radius:4px;font-weight:700}
+:root {
+  --bg: #09090b;
+  --surface: #18181b;
+  --surface-hover: #27272a;
+  --border: #27272a;
+  --border-subtle: #1e1e21;
+  --text: #fafafa;
+  --text-muted: #a1a1aa;
+  --text-dim: #71717a;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-glow: rgba(59, 130, 246, 0.15);
+  --green: #22c55e;
+  --green-dim: rgba(34, 197, 94, 0.12);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  --mono: 'SF Mono', 'Fira Code', 'JetBrains Mono', 'Cascadia Code', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(9, 9, 11, 0.8);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 16px 0;
+}
+nav .container { display: flex; justify-content: space-between; align-items: center; }
+.nav-brand { font-weight: 600; font-size: 0.95rem; letter-spacing: -0.02em; }
+.nav-brand span { color: var(--accent); }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.875rem; transition: color 0.15s; }
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  background: var(--accent); color: white !important; padding: 8px 16px;
+  border-radius: 6px; font-weight: 500; transition: background 0.15s;
+}
+.nav-cta:hover { background: var(--accent-hover); }
+
+.hero { padding: 120px 0 80px; text-align: center; }
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--green-dim); color: var(--green);
+  font-size: 0.8rem; font-weight: 500;
+  padding: 6px 14px; border-radius: 20px; margin-bottom: 24px;
+}
+.hero-badge::before {
+  content: ''; width: 6px; height: 6px;
+  background: var(--green); border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+.hero h1 {
+  font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 700;
+  letter-spacing: -0.035em; line-height: 1.1; margin-bottom: 20px;
+}
+.hero h1 em { font-style: normal; color: var(--accent); }
+.hero p {
+  font-size: 1.15rem; color: var(--text-muted);
+  max-width: 560px; margin: 0 auto 40px; line-height: 1.7;
+}
+.hero-stats { display: flex; justify-content: center; gap: 48px; margin-top: 48px; }
+.hero-stat { text-align: center; }
+.hero-stat .num { font-size: 2rem; font-weight: 700; font-family: var(--mono); }
+.hero-stat .label {
+  font-size: 0.8rem; color: var(--text-dim);
+  text-transform: uppercase; letter-spacing: 0.05em; margin-top: 4px;
+}
+
+section { padding: 80px 0; }
+.section-label {
+  font-size: 0.75rem; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.1em; color: var(--accent); margin-bottom: 12px;
+}
+.section-title { font-size: 1.75rem; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 12px; }
+.section-subtitle { color: var(--text-muted); font-size: 1rem; max-width: 520px; margin-bottom: 48px; }
+
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.step {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px 28px;
+}
+.step-num { font-family: var(--mono); font-size: 0.75rem; font-weight: 600; color: var(--accent); margin-bottom: 16px; }
+.step h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 8px; }
+.step p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.6; }
+
+.case-studies { display: grid; gap: 32px; }
+.case-study {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); overflow: hidden;
+}
+.case-header { padding: 32px 32px 24px; display: flex; justify-content: space-between; align-items: flex-start; }
+.case-meta { flex: 1; }
+.case-meta h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 8px; }
+.case-meta p { color: var(--text-muted); font-size: 0.9rem; }
+.case-tags { display: flex; gap: 24px; text-align: right; }
+.case-tag .val { font-family: var(--mono); font-size: 1.1rem; font-weight: 600; }
+.case-tag .key { font-size: 0.7rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.05em; }
+
+.data-preview {
+  margin: 0 32px 32px; border: 1px solid var(--border);
+  border-radius: var(--radius-sm); overflow: hidden;
+}
+.data-preview table { width: 100%; border-collapse: collapse; font-size: 0.8rem; }
+.data-preview th {
+  background: rgba(59, 130, 246, 0.08); color: var(--accent);
+  font-weight: 600; font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.06em; padding: 10px 14px; text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.data-preview td {
+  padding: 9px 14px; border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-muted); font-family: var(--mono); font-size: 0.78rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 200px;
+}
+.data-preview tr:last-child td { border-bottom: none; }
+.data-preview tr:hover td { background: rgba(255,255,255,0.02); }
+.data-fade { position: relative; }
+.data-fade::after {
+  content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+  height: 60px; background: linear-gradient(transparent, var(--surface)); pointer-events: none;
+}
+.data-count { text-align: center; padding: 12px; font-size: 0.8rem; color: var(--text-dim); font-family: var(--mono); }
+
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.price-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 32px 28px; transition: border-color 0.2s;
+}
+.price-card:hover { border-color: var(--accent); }
+.price-card.featured {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 1px var(--accent), 0 8px 32px var(--accent-glow);
+}
+.price-name { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); margin-bottom: 8px; }
+.price-amount { font-size: 2rem; font-weight: 700; font-family: var(--mono); margin-bottom: 4px; }
+.price-unit { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 20px; }
+.price-features { list-style: none; }
+.price-features li {
+  font-size: 0.85rem; color: var(--text-muted); padding: 6px 0;
+  display: flex; align-items: center; gap: 10px;
+}
+.price-features li::before { content: '✓'; color: var(--green); font-size: 0.8rem; font-weight: 700; }
+
+.cta-section { text-align: center; padding: 80px 0 100px; }
+.cta-section h2 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 12px; }
+.cta-section p { color: var(--text-muted); margin-bottom: 32px; font-size: 1rem; }
+.cta-btn {
+  display: inline-block; background: var(--accent); color: white;
+  padding: 14px 32px; border-radius: 8px; text-decoration: none;
+  font-weight: 600; font-size: 0.95rem; transition: background 0.15s, transform 0.1s;
+}
+.cta-btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+
+footer {
+  border-top: 1px solid var(--border-subtle); padding: 32px 0;
+  text-align: center; font-size: 0.8rem; color: var(--text-dim);
+}
+footer a { color: var(--text-dim); }
+
+@media (max-width: 768px) {
+  .steps, .pricing-grid { grid-template-columns: 1fr; }
+  .hero-stats { gap: 24px; flex-wrap: wrap; }
+  .case-header { flex-direction: column; gap: 16px; }
+  .case-tags { text-align: left; }
+  .data-preview { margin: 0 16px 24px; overflow-x: auto; }
+  .nav-links a:not(.nav-cta) { display: none; }
+}
 </style>
 </head>
 <body>
-<div class="header">
-<h1>🛠️ AI Tools</h1>
-<p class="subtitle">Free, open-source AI-powered tools for developers and professionals</p>
-<div class="stats">
-<div class="stat"><div class="num">14</div><div class="label">Tools</div></div>
-<div class="stat"><div class="num">0</div><div class="label">Cost</div></div>
-<div class="stat"><div class="num">∞</div><div class="label">Potential</div></div>
-</div>
-</div>
-<div class="grid">
 
-<a href="https://michael-ami-01.github.io/self-improving-ai/" class="card new">
-  <h2>📊 Self-Improving AI</h2>
-  <p>Live metrics from a self-improving AI agent. Real data, not benchmarks.</p>
-</a>
-<a href="https://michael-ami-01.github.io/coldscore/" class="card">
-<div class="icon">📧</div>
-<h3>ColdScore</h3>
-<p>AI-powered cold email scorer. Paste your email, get instant feedback on subject line, personalization, CTA strength, and deliverability.</p>
-<span class="tag">Sales & Marketing</span>
-</a>
+<nav>
+  <div class="container">
+    <div class="nav-brand"><span>⚡</span> DataExtract</div>
+    <div class="nav-links">
+      <a href="#how">How It Works</a>
+      <a href="#cases">Case Studies</a>
+      <a href="#pricing">Pricing</a>
+      <a href="mailto:michael_ami_01@yahoo.com" class="nav-cta">Get Started</a>
+    </div>
+  </div>
+</nav>
 
-<a href="https://michael-ami-01.github.io/cold-email-scorer/" class="card">
-<div class="icon">✉️</div>
-<h3>Cold Email Scorer v2</h3>
-<p>Enhanced cold email analysis with detailed scoring rubric, spam trigger detection, and rewrite suggestions.</p>
-<span class="tag">Sales & Marketing</span>
-</a>
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">Accepting new projects</div>
+    <h1>Structured data from<br>any website, <em>in minutes</em></h1>
+    <p>AI-powered extraction that turns messy web pages into clean, analysis-ready datasets. CSV, JSON, or direct to Google Sheets.</p>
+    <a href="mailto:michael_ami_01@yahoo.com?subject=Data%20Extraction%20Project&body=Hi%2C%0A%0AI%20need%20data%20extracted%20from%3A%20%5BURL%5D%0AFields%20I%20need%3A%20%5Bname%2C%20address%2C%20etc.%5D%0AApprox%20records%3A%20%5B%23%5D%0AFormat%3A%20CSV%20%2F%20JSON%20%2F%20Sheets%0ADeadline%3A%20%5Bdate%5D" class="cta-btn">Start a Project →</a>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="num">14 min</div><div class="label">Avg. Delivery</div></div>
+      <div class="hero-stat"><div class="num">333+</div><div class="label">Records Delivered</div></div>
+      <div class="hero-stat"><div class="num">99.6%</div><div class="label">Field Accuracy</div></div>
+    </div>
+  </div>
+</section>
 
-<a href="https://michael-ami-01.github.io/resume-ai-score/" class="card new">
-<div class="icon">📄</div>
-<h3>Resume AI Score</h3>
-<p>Get your resume scored by AI. Analyzes format, impact statements, keyword optimization, and ATS compatibility.</p>
-<span class="tag">Career</span>
-</a>
+<section id="how">
+  <div class="container">
+    <div class="section-label">How It Works</div>
+    <div class="section-title">Three steps. No API keys, no code.</div>
+    <div class="section-subtitle">Tell us what you need, we handle everything else.</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h3>Describe your data</h3>
+        <p>Send the target URL and the fields you need. We'll confirm scope, format, and timeline within the hour.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h3>We extract &amp; clean</h3>
+        <p>Our AI navigates the site, handles pagination, anti-bot measures, and JS rendering. Data is deduplicated and validated.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h3>Download your dataset</h3>
+        <p>Receive a clean CSV, JSON, or Google Sheet — ready for analysis, CRM import, or whatever you're building.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-<a href="https://michael-ami-01.github.io/linkedingpt/" class="card new">
-<div class="icon">💼</div>
-<h3>LinkedInGPT</h3>
-<p>AI-powered LinkedIn post generator. Create engaging professional content with the right tone and hashtags.</p>
-<span class="tag">Career</span>
-</a>
+<section id="cases" style="background: rgba(255,255,255,0.01);">
+  <div class="container">
+    <div class="section-label">Case Studies</div>
+    <div class="section-title">Real extractions. Real data.</div>
+    <div class="section-subtitle">Sample outputs from recent projects.</div>
+    <div class="case-studies">
+      <div class="case-study">
+        <div class="case-header">
+          <div class="case-meta">
+            <h3>YC Summer 2024 Batch — Complete Directory</h3>
+            <p>Extracted all 247 companies from Y Combinator's S24 batch page. 7 structured fields per company including website URLs, categories, and descriptions.</p>
+          </div>
+          <div class="case-tags">
+            <div class="case-tag"><div class="val">247</div><div class="key">Records</div></div>
+            <div class="case-tag"><div class="val">14 min</div><div class="key">Delivery</div></div>
+            <div class="case-tag"><div class="val">7</div><div class="key">Fields</div></div>
+          </div>
+        </div>
+        <div class="data-preview">
+          <div class="data-fade">
+            <table>
+              <tr><th>Company</th><th>Location</th><th>Description</th><th>Website</th><th>Categories</th></tr>
+              <tr><td>Outerport</td><td>San Francisco, CA</td><td>AI Electromechanical Process Engineers</td><td>outerport.com</td><td>B2B; Engineering</td></tr>
+              <tr><td>Conductor</td><td>San Francisco, CA</td><td>Run a team of coding agents on your Mac</td><td>conductor.build</td><td>B2B; Engineering</td></tr>
+              <tr><td>Syntra</td><td>San Francisco, CA</td><td>Medical chart intelligence</td><td>syntra.com</td><td>Healthcare IT</td></tr>
+              <tr><td>PathPilot</td><td>San Francisco, CA</td><td>AI Agents for Lending Operations</td><td>getpathpilot.com</td><td>B2B</td></tr>
+              <tr><td>Freestyle</td><td>San Francisco, CA</td><td>We run and deploy code your AI wrote</td><td>freestyle.sh</td><td>B2B; Infrastructure</td></tr>
+            </table>
+          </div>
+          <div class="data-count">+ 242 more rows · CSV download included</div>
+        </div>
+      </div>
 
-<a href="https://michael-ami-01.github.io/ai-council/" class="card new">
-<div class="icon">🧠</div>
-<h3>AI Decision Council</h3>
-<p>Ask 18 AI expert personas your hardest question. Get diverse perspectives from a simulated panel of domain specialists.</p>
-<span class="tag">AI & Productivity</span>
-</a>
+      <div class="case-study">
+        <div class="case-header">
+          <div class="case-meta">
+            <h3>Austin Coffee Shops — Location Intelligence</h3>
+            <p>Scraped 86 coffee shops from Google Maps with full business details: address, phone, rating, review count, hours, website, and GPS coordinates.</p>
+          </div>
+          <div class="case-tags">
+            <div class="case-tag"><div class="val">86</div><div class="key">Records</div></div>
+            <div class="case-tag"><div class="val">7 min</div><div class="key">Delivery</div></div>
+            <div class="case-tag"><div class="val">10</div><div class="key">Fields</div></div>
+          </div>
+        </div>
+        <div class="data-preview">
+          <div class="data-fade">
+            <table>
+              <tr><th>Name</th><th>Address</th><th>Rating</th><th>Reviews</th><th>Phone</th></tr>
+              <tr><td>Café Crème</td><td>710 W Cesar Chavez St</td><td>4.8</td><td>284</td><td>(512) 730-0377</td></tr>
+              <tr><td>Merit Coffee Co.</td><td>222 West Ave #120</td><td>4.5</td><td>576</td><td>(512) 906-0266</td></tr>
+              <tr><td>Black Sheep Coffee</td><td>600 Guadalupe St</td><td>4.4</td><td>123</td><td>(737) 420-2504</td></tr>
+              <tr><td>Black Fox Coffee</td><td>323 W 6th St</td><td>4.6</td><td>56</td><td>—</td></tr>
+              <tr><td>Summer Moon</td><td>Multiple locations</td><td>4.5</td><td>890+</td><td>—</td></tr>
+            </table>
+          </div>
+          <div class="data-count">+ 81 more rows · Includes lat/lng coordinates</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<a href="https://michael-ami-01.github.io/promptforge/" class="card">
-<div class="icon">⚡</div>
-<h3>PromptForge</h3>
-<p>Optimize your AI prompts. Analyzes structure, specificity, and effectiveness with concrete improvement suggestions.</p>
-<span class="tag">AI & Productivity</span>
-</a>
+<section id="pricing">
+  <div class="container">
+    <div class="section-label">Pricing</div>
+    <div class="section-title">Simple, project-based pricing</div>
+    <div class="section-subtitle">No subscriptions, no hidden fees. Pay per extraction.</div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Starter</div>
+        <div class="price-amount">$49</div>
+        <div class="price-unit">per project</div>
+        <ul class="price-features">
+          <li>Up to 500 records</li>
+          <li>Single website source</li>
+          <li>24-hour delivery</li>
+          <li>CSV or JSON output</li>
+          <li>1 revision included</li>
+        </ul>
+      </div>
+      <div class="price-card featured">
+        <div class="price-name">Standard</div>
+        <div class="price-amount">$99</div>
+        <div class="price-unit">per project</div>
+        <ul class="price-features">
+          <li>Up to 2,000 records</li>
+          <li>Single website source</li>
+          <li>12-hour delivery</li>
+          <li>CSV, JSON, or Sheets</li>
+          <li>2 revisions included</li>
+          <li>Data validation report</li>
+        </ul>
+      </div>
+      <div class="price-card">
+        <div class="price-name">Pro</div>
+        <div class="price-amount">$199</div>
+        <div class="price-unit">per project</div>
+        <ul class="price-features">
+          <li>Up to 5,000 records</li>
+          <li>Up to 3 website sources</li>
+          <li>Same-day delivery</li>
+          <li>Any output format</li>
+          <li>Unlimited revisions</li>
+          <li>Deduplication &amp; enrichment</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
 
-<a href="https://michael-ami-01.github.io/devtools/" class="card">
-<div class="icon">🔧</div>
-<h3>DevTools Suite</h3>
-<p>8-in-1 developer toolkit: JSON formatter, Base64 encoder, JWT decoder, URL parser, hash generator, timestamp converter, text diff, and color picker.</p>
-<span class="tag">Developer</span>
-</a>
+<section class="cta-section">
+  <div class="container">
+    <h2>Need data extracted?</h2>
+    <p>Describe your project. We'll scope it and send a quote within the hour.</p>
+    <a href="mailto:michael_ami_01@yahoo.com?subject=Data%20Extraction%20Project&body=Hi%2C%0A%0AI%20need%20data%20extracted%20from%3A%20%5BURL%5D%0AFields%20I%20need%3A%20%5Bname%2C%20address%2C%20etc.%5D%0AApprox%20records%3A%20%5B%23%5D%0AFormat%3A%20CSV%20%2F%20JSON%20%2F%20Sheets%0ADeadline%3A%20%5Bdate%5D" class="cta-btn">Start a Project →</a>
+  </div>
+</section>
 
-<a href="https://michael-ami-01.github.io/regex-tester/" class="card">
-<div class="icon">🔍</div>
-<h3>Regex Tester</h3>
-<p>Real-time regex testing with match highlighting, capture groups, and common pattern library.</p>
-<span class="tag">Developer</span>
-</a>
+<footer>
+  <div class="container">
+    <p>© 2026 DataExtract · <a href="mailto:michael_ami_01@yahoo.com">michael_ami_01@yahoo.com</a></p>
+  </div>
+</footer>
 
-<a href="https://michael-ami-01.github.io/metatags/" class="card">
-<div class="icon">🏷️</div>
-<h3>Meta Tag Generator</h3>
-<p>Generate perfect meta tags for SEO. Live previews for Google, Facebook, and Twitter cards.</p>
-<span class="tag">SEO</span>
-</a>
-
-<a href="https://michael-ami-01.github.io/meta-tags-checker/" class="card new">
-<div class="icon">🔎</div>
-<h3>Meta Tags Checker</h3>
-<p>Analyze any URL's meta tags. Check Open Graph, Twitter Cards, and SEO metadata with actionable recommendations.</p>
-<span class="tag">SEO</span>
-</a>
-
-<a href="https://michael-ami-01.github.io/readme-generator/" class="card">
-<div class="icon">📝</div>
-<h3>README Generator</h3>
-<p>Build beautiful GitHub READMEs with badges, table of contents, and 10+ customizable sections.</p>
-<span class="tag">Developer</span>
-</a>
-
-<a href="https://michael-ami-01.github.io/readme-grader/" class="card">
-<div class="icon">📊</div>
-<h3>README Grader</h3>
-<p>Score your GitHub README on completeness, clarity, and best practices. Get specific improvement tips.</p>
-<span class="tag">Developer</span>
-</a>
-
-</div>
-<div class="footer">
-<p>All tools are free and open source</p>
-<p style="margin-top:.5rem">🚀 New tools added regularly · <a href="https://github.com/michael-ami-01">View on GitHub</a></p>
-</div>
 </body>
 </html>
+
