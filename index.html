@@ -3,100 +3,129 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>aitool.tools — Free Developer Utilities by AI Tools</title>
-<meta name="description" content="Free, fast, privacy-first developer tools. JSON formatter, regex tester, email scorer, README generator, and more.">
+<title>Michael Zhang's AI Tools</title>
+<meta name="description" content="Free AI-powered developer and productivity tools by Michael Zhang">
+<meta name="keywords" content="AI tools, developer tools, cold email scorer, regex tester, JSON formatter, resume scorer, prompt optimizer">
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif; background: #0a0a0a; color: #e0e0e0; min-height: 100vh; }
-  .header { text-align: center; padding: 60px 20px 20px; }
-  .header h1 { font-size: 2.5rem; font-weight: 700; background: linear-gradient(135deg, #667eea, #764ba2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 8px; }
-  .header p { color: #888; font-size: 1.1rem; }
-  .header .count { color: #667eea; font-weight: 600; margin-top: 8px; font-size: 0.95rem; }
-  .ad-banner { max-width: 728px; margin: 20px auto; padding: 12px; background: #111; border: 1px solid #222; border-radius: 8px; text-align: center; color: #444; font-size: 0.8rem; min-height: 90px; display: flex; align-items: center; justify-content: center; }
-  .tools { max-width: 1000px; margin: 20px auto; padding: 0 20px 60px; display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
-  .tool-card { background: #141414; border: 1px solid #222; border-radius: 12px; padding: 20px; transition: all 0.2s; cursor: pointer; text-decoration: none; color: inherit; display: block; }
-  .tool-card:hover { border-color: #667eea; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(102,126,234,0.1); }
-  .tool-card .icon { font-size: 1.8rem; margin-bottom: 10px; }
-  .tool-card h3 { font-size: 1rem; margin-bottom: 6px; color: #fff; }
-  .tool-card p { font-size: 0.85rem; color: #888; line-height: 1.4; }
-  .tool-card .tag { display: inline-block; font-size: 0.65rem; background: #0d2818; color: #4ade80; padding: 2px 8px; border-radius: 4px; margin-top: 10px; text-transform: uppercase; letter-spacing: 0.5px; }
-  .footer { text-align: center; padding: 40px 20px; color: #555; font-size: 0.85rem; border-top: 1px solid #1a1a1a; }
-  .footer a { color: #667eea; text-decoration: none; }
-  .ad-sidebar { position: fixed; right: 20px; top: 200px; width: 160px; min-height: 600px; background: #111; border: 1px solid #222; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #333; font-size: 0.75rem; }
-  @media (max-width: 1200px) { .ad-sidebar { display: none; } }
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e0e0e0;min-height:100vh}
+.header{text-align:center;padding:3rem 1rem 2rem;background:linear-gradient(135deg,#1a1a2e,#16213e)}
+h1{font-size:2.5rem;background:linear-gradient(90deg,#00d2ff,#3a7bd5);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:.5rem}
+.subtitle{color:#888;font-size:1.1rem}
+.stats{display:flex;gap:2rem;justify-content:center;margin-top:1.5rem;flex-wrap:wrap}
+.stat{text-align:center}.stat .num{font-size:2rem;font-weight:700;color:#00d2ff}.stat .label{font-size:.8rem;color:#666;text-transform:uppercase}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.5rem;padding:2rem;max-width:1200px;margin:0 auto}
+.card{background:#1a1a2e;border-radius:12px;padding:1.5rem;transition:transform .2s,box-shadow .2s;border:1px solid #2a2a4a;text-decoration:none;color:inherit;display:block}
+.card:hover{transform:translateY(-4px);box-shadow:0 8px 25px rgba(0,210,255,.15);border-color:#3a7bd5}
+.card .icon{font-size:2rem;margin-bottom:.75rem}
+.card h3{font-size:1.2rem;margin-bottom:.5rem;color:#fff}
+.card p{font-size:.9rem;color:#888;line-height:1.5}
+.card .tag{display:inline-block;font-size:.7rem;padding:2px 8px;border-radius:10px;background:#2a2a4a;color:#00d2ff;margin-top:.75rem}
+.footer{text-align:center;padding:2rem;color:#444;font-size:.85rem}
+.footer a{color:#3a7bd5;text-decoration:none}
+.new{position:relative}.new::after{content:'NEW';position:absolute;top:12px;right:12px;background:#ff4757;color:#fff;font-size:.6rem;padding:2px 6px;border-radius:4px;font-weight:700}
 </style>
 </head>
 <body>
 <div class="header">
-  <h1>aitool.tools</h1>
-  <p>Free developer utilities — fast, private, no signup required</p>
-  <p class="count">9 tools shipped and counting</p>
+<h1>🛠️ Michael Zhang's AI Tools</h1>
+<p class="subtitle">Free, open-source AI-powered tools for developers and professionals</p>
+<div class="stats">
+<div class="stat"><div class="num">14</div><div class="label">Tools</div></div>
+<div class="stat"><div class="num">0</div><div class="label">Cost</div></div>
+<div class="stat"><div class="num">∞</div><div class="label">Potential</div></div>
 </div>
-
-<div class="ad-banner"><span>Ad Space — 728×90 Leaderboard</span></div>
-
-<div class="tools">
-  <a href="https://michael-ami-01.github.io/devtools/" class="tool-card">
-    <div class="icon">🔧</div>
-    <h3>DevTools Suite</h3>
-    <p>JSON formatter, Base64 encoder/decoder, JWT token decoder — all in one page.</p>
-    <span class="tag">Live</span>
-  </a>
-
-  <a href="https://michael-ami-01.github.io/regex-tester/" class="tool-card">
-    <div class="icon">🔍</div>
-    <h3>Regex Tester</h3>
-    <p>Real-time regex testing with match highlighting and capture group display.</p>
-    <span class="tag">Live</span>
-  </a>
-
-  <a href="https://michael-ami-01.github.io/coldscore/" class="tool-card">
-    <div class="icon">📧</div>
-    <h3>ColdScore</h3>
-    <p>AI-powered cold email scorer with actionable feedback on subject, personalization, and CTA.</p>
-    <span class="tag">Live</span>
-  </a>
-
-  <a href="https://michael-ami-01.github.io/cold-email-scorer/" class="tool-card">
-    <div class="icon">✉️</div>
-    <h3>Email Scorer Pro</h3>
-    <p>Detailed cold email analysis across 6 scoring dimensions with improvement suggestions.</p>
-    <span class="tag">Live</span>
-  </a>
-
-  <a href="https://michael-ami-01.github.io/promptforge/" class="tool-card">
-    <div class="icon">⚡</div>
-    <h3>PromptForge</h3>
-    <p>AI prompt engineering toolkit — build, test, and refine prompts for any LLM.</p>
-    <span class="tag">Live</span>
-  </a>
-
-  <a href="https://michael-ami-01.github.io/readme-generator/" class="tool-card">
-    <div class="icon">📄</div>
-    <h3>README Generator</h3>
-    <p>Generate professional README.md files for your GitHub repos in seconds.</p>
-    <span class="tag">Live</span>
-  </a>
-
-  <a href="https://michael-ami-01.github.io/readme-grader/" class="tool-card">
-    <div class="icon">📊</div>
-    <h3>README Grader</h3>
-    <p>Score your README against best practices — badges, examples, structure, and more.</p>
-    <span class="tag">Live</span>
-  </a>
-
-  <a href="https://michael-ami-01.github.io/metatags/" class="tool-card">
-    <div class="icon">🏷️</div>
-    <h3>Meta Tags</h3>
-    <p>Preview and generate Open Graph and Twitter Card meta tags for any page.</p>
-    <span class="tag">Live</span>
-  </a>
 </div>
+<div class="grid">
 
-<div class="ad-sidebar"><span>160×600</span></div>
+<a href="https://michael-ami-01.github.io/coldscore/" class="card">
+<div class="icon">📧</div>
+<h3>ColdScore</h3>
+<p>AI-powered cold email scorer. Paste your email, get instant feedback on subject line, personalization, CTA strength, and deliverability.</p>
+<span class="tag">Sales & Marketing</span>
+</a>
 
+<a href="https://michael-ami-01.github.io/cold-email-scorer/" class="card">
+<div class="icon">✉️</div>
+<h3>Cold Email Scorer v2</h3>
+<p>Enhanced cold email analysis with detailed scoring rubric, spam trigger detection, and rewrite suggestions.</p>
+<span class="tag">Sales & Marketing</span>
+</a>
+
+<a href="https://michael-ami-01.github.io/resume-ai-score/" class="card new">
+<div class="icon">📄</div>
+<h3>Resume AI Score</h3>
+<p>Get your resume scored by AI. Analyzes format, impact statements, keyword optimization, and ATS compatibility.</p>
+<span class="tag">Career</span>
+</a>
+
+<a href="https://michael-ami-01.github.io/linkedingpt/" class="card new">
+<div class="icon">💼</div>
+<h3>LinkedInGPT</h3>
+<p>AI-powered LinkedIn post generator. Create engaging professional content with the right tone and hashtags.</p>
+<span class="tag">Career</span>
+</a>
+
+<a href="https://michael-ami-01.github.io/ai-council/" class="card new">
+<div class="icon">🧠</div>
+<h3>AI Decision Council</h3>
+<p>Ask 18 AI expert personas your hardest question. Get diverse perspectives from a simulated panel of domain specialists.</p>
+<span class="tag">AI & Productivity</span>
+</a>
+
+<a href="https://michael-ami-01.github.io/promptforge/" class="card">
+<div class="icon">⚡</div>
+<h3>PromptForge</h3>
+<p>Optimize your AI prompts. Analyzes structure, specificity, and effectiveness with concrete improvement suggestions.</p>
+<span class="tag">AI & Productivity</span>
+</a>
+
+<a href="https://michael-ami-01.github.io/devtools/" class="card">
+<div class="icon">🔧</div>
+<h3>DevTools Suite</h3>
+<p>8-in-1 developer toolkit: JSON formatter, Base64 encoder, JWT decoder, URL parser, hash generator, timestamp converter, text diff, and color picker.</p>
+<span class="tag">Developer</span>
+</a>
+
+<a href="https://michael-ami-01.github.io/regex-tester/" class="card">
+<div class="icon">🔍</div>
+<h3>Regex Tester</h3>
+<p>Real-time regex testing with match highlighting, capture groups, and common pattern library.</p>
+<span class="tag">Developer</span>
+</a>
+
+<a href="https://michael-ami-01.github.io/metatags/" class="card">
+<div class="icon">🏷️</div>
+<h3>Meta Tag Generator</h3>
+<p>Generate perfect meta tags for SEO. Live previews for Google, Facebook, and Twitter cards.</p>
+<span class="tag">SEO</span>
+</a>
+
+<a href="https://michael-ami-01.github.io/meta-tags-checker/" class="card new">
+<div class="icon">🔎</div>
+<h3>Meta Tags Checker</h3>
+<p>Analyze any URL's meta tags. Check Open Graph, Twitter Cards, and SEO metadata with actionable recommendations.</p>
+<span class="tag">SEO</span>
+</a>
+
+<a href="https://michael-ami-01.github.io/readme-generator/" class="card">
+<div class="icon">📝</div>
+<h3>README Generator</h3>
+<p>Build beautiful GitHub READMEs with badges, table of contents, and 10+ customizable sections.</p>
+<span class="tag">Developer</span>
+</a>
+
+<a href="https://michael-ami-01.github.io/readme-grader/" class="card">
+<div class="icon">📊</div>
+<h3>README Grader</h3>
+<p>Score your GitHub README on completeness, clarity, and best practices. Get specific improvement tips.</p>
+<span class="tag">Developer</span>
+</a>
+
+</div>
 <div class="footer">
-  <p>Built by <a href="https://github.com/aitool">AI Tools</a> · Stanford CS · <a href="https://github.com/michael-ami-01">View on GitHub</a></p>
+<p>Built by <a href="https://github.com/mzio" target="_blank">Michael Zhang</a> · Stanford CS · All tools are free and open source</p>
+<p style="margin-top:.5rem">🚀 New tools added regularly · <a href="https://github.com/michael-ami-01">View on GitHub</a></p>
 </div>
 </body>
 </html>
